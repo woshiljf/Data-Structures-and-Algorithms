@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">添加文本节点</button>
+    <script>
+        document.getElementById('btn').onclick = function() {
+
+            var textNode = document.createTextNode('<h1>我是大海沟</h1>')
+            document.getElementById('box').appendChild(textNode)
+            document.getElementById('box').className = 'message'
+            document.getElementById('box').normalize() // 合并文本节点（dom文档中若存在多个文本节点，可能导致渲染混乱，可以使用节点的normalize()方法进行合并
+
+
+        }
+    </script>
+</body>
+
+</html>

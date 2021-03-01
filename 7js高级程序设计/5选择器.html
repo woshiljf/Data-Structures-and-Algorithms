@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <div id="box">
+
+        <h1>wo</h1>
+        <h1>shi</h1>
+        <h1>zhu</h1>
+        <h1>hello</h1>
+        <h1>ok</h1>
+
+
+
+    </div>
+    <div class="box">
+
+        <h1>wo</h1>
+        <h1>shi</h1>
+
+
+
+
+    </div>
+    <script>
+        if (document.readyState == 'loading') {
+            console.log('文档正在加载');
+
+            var b = document.getElementById('box')
+            console.log(b.firstElementChild);
+            b.classList.add('box')
+            var nodeList = document.getElementById('box').querySelectorAll('h1')
+            console.log(nodeList);
+            var btn = document.getElementById('btn')
+            btn.focus()
+            console.log(document.charset);
+            var b1 = b.innerHTML = '我是大海狗'
+            b.innerHTML = "<script defer>alert('a')<\/script>"
+
+        }
+        console.log(document.readyState);
+    </script>
+</body>
+
+</html>

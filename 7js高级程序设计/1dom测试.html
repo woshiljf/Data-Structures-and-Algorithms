@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">插入</button>
+    <input type="text" name="box" id="box">
+    <div id="box">
+        <div>我是first</div>
+        <h2>我是two</h2>
+        <h2>我是three</h2>
+        <button onclick="fn()" id="btn2">点我</button>
+    </div>
+
+    <div id="box1">
+
+    </div>
+</body>
+<script>
+    const box = document.getElementById('box')
+    const box1 = document.getElementById('box1')
+    const btn = document.getElementById('btn')
+    var count = 0
+    btn.onclick = function() {
+        count++
+        console.log(box);
+        // var newNode = document.createElement('p')
+        // newNode.innerText = '我是p标签'
+        // var cNode = box.cloneNode(true)
+        // box1.appendChild(cNode)
+        //     // box.replaceChild(newNode, box.childNodes[3])
+        // console.log(box.childNodes);
+        // console.log(count);
+
+    }
+
+    function fn() {
+        console.log('我是小狗子');
+    }
+</script>
+
+</html>
