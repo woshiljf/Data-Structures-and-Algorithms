@@ -39,18 +39,13 @@ var isValidSerialization = function(preorder) {
     var n = preorder.length
     for (let i = 0; i < n; i++) {
         if (preorder[i] == ',') {
-
             slot--
             if (slot < 0) return false
             if (preorder[i - 1] !== '#') {
-
                 slot += 2
-
             }
         }
-
     }
-
     slot = preorder[n - 1] == '#' ? slot - 1 : slot + 2
     return slot == 0
 
