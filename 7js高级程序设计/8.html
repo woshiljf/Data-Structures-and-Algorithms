@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Myclass {
+
+            constructor(limit) {
+                this.limit = limit
+            }
+
+            [Symbol.hasInstance](foo) {
+                console.log('值了');
+                return foo instanceof Array
+            }
+            [Symbol.iterator]() {
+
+                let count = 1
+                var limit = this.limit
+
+                return {
+
+                    next() {
+
+                        if (count <= limit) {
+                            return {
+                                value: count++,
+                                done: false
+                            }
+                        } else {
+                            return {
+                                done: true,
+                                value: undefined
+                            }
+                        }
+
+
+
+                    }
+
+
+                }
+
+
+
+            }
+
+        }
+
+        var m = new Myclass(5)
+
+        for (const item of m) {
+
+            console.log(item);
+
+        }
+    </script>
+</body>
+
+</html>

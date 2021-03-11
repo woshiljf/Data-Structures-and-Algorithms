@@ -12,7 +12,6 @@
 var binaryTreePaths = function(root) {
 
     if (!root) return []
-
     var res = []
 
     function help(node, pathStr) {
