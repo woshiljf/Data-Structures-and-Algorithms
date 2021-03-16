@@ -27,5 +27,5 @@ function fibTmp(a, b, n) {
 
 }
 
-var f1 = fib(1000)
+var f1 = fib(3)
 console.log(f1);
