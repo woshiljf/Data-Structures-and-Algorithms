@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">点我</button>
+
+    <form action="www.baidu.com" method="post" id="user">
+
+        <input type="text" name="姓名" id="name">
+        <input type="text" name="密码" id="pwd">
+        <input type="submit" value="提交">
+
+    </form>
+
+
+    <script>
+        document.getElementById('btn').onclick = function() {
+            var xml = new XMLHttpRequest()
+
+            xml.onreadystatechange = function() {
+
+                if (xml.readyState == 4) {
+
+                    if (xml.status == 200) {
+
+                        alert(xml.responseText)
+
+
+                    }
+
+
+                }
+
+
+            }
+
+
+
+
+            xml.open('post', 'www.baidu.com', false)
+            let form = document.getElementById('user')
+            xml.send('data')
+        }
+    </script>
+</body>
+
+</html>

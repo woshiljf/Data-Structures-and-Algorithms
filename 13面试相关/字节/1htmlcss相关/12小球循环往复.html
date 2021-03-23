@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+            div {
+            width: 200px;
+            height: 200px;
+            border: 1px dashed green;
+            position: relative;
+        }
+        
+        div span {
+            position: absolute;
+            left: 45%;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: red;
+            animation-name: around;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes around {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translate(100px);
+            }
+            75% {
+                transform: translate(-100px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span></span>
+    </div>
+</body>
+
+</html>

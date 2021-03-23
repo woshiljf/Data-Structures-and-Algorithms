@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+            border: 1px solid pink;
+            background: linear-gradient(to top, pink, skyblue);
+            display: grid;
+            /* minmax,解决留白的情况 */
+            /* repeat指定行和列的数量，auto-fit */
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-rows: repeat(3, 100px);
+        }
+        
+        li {
+            border: 1px solid pink;
+            background-image: linear-gradient(to left, blue, tomato);
+            list-style: none;
+            /* flex: 1; */
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li class="one">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+
+</html>

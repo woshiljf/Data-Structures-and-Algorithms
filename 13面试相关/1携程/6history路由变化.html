@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前端单页面路由</title>
+    <style>
+        .warp {
+            width: 400px;
+            height: 400px;
+            border: 1px solid grey;
+            margin: 0 auto;
+        }
+        
+        .nav {
+            border-bottom: 1px solid grey;
+        }
+        
+        .nav li {
+            display: inline-block;
+            list-style: none;
+        }
+        
+        .nav li a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        
+        .router {
+            padding: 20px;
+        }
+        
+        a {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="warp">
+        <div class="nav">
+            <ul>
+                <li><a href="javascript:void(0)" data-path="index">首页</a></li>
+                <li><a href="javascript:void(0)" data-path="news">新闻</a></li>
+                <li><a href="javascript:void(0)" data-path="about">关于</a></li>
+            </ul>
+        </div>
+        <div id="root" class="router">
+            <!-- 内容加载区域 -->
+        </div>
+    </section>
+    <script>
+        (function() {
+            //获取 DOM 元素
+            var aList = document.getElementsByTagName("a");
+            var root = document.querySelector("#root");
+            //路由配置
+            var routers = [{
+                path: "index",
+                component: "首页"
+            }, {
+                path: "news",
+                component: "新闻"
+            }, {
+                path: "about",
+                component: "关于"
+            }];
+            //更改页面视图
+            function refresh(path) {
+                routers.map(item => {
+                    if (path == item.path) {
+                        root.innerHTML = item.component;
+                    }
+                })
+            }
+            //点击页面时触发
+            for (let i = 0; i < aList.length; i++) {
+                aList[i].addEventListener('click', function(e) {
+                    var path = this["attributes"]["data-path"].value;
+                    history.pushState({}, null, '#/' + path);
+                    refresh(path);
+                });
+            }
+            //浏览器前进后退时触发
+            window.addEventListener('popstate', function(e) {
+                var path = location.hash.slice(2) || "index";
+                refresh(path);
+            });
+            //浏览器刷新时触发
+            window.addEventListener('load', function() {
+                var path = location.hash.slice(2) || "index";
+                history.replaceState({}, null, '#/' + path);
+                refresh(path);
+            });
+        })()
+    </script>
+</body>
+
+</html>

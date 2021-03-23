@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+    <h1>1</h1>
+
+
+    <script>
+        var nodelist = document.getElementsByTagName('body')
+
+
+        // 递归获取元素的dom文档中最多的标签
+        var maxcount = 0
+        var ele = null
+        var map = {}
+
+        function dfsgetEleMaxCount(nodeList) {
+            console.log(nodeList);
+            for (let i = 0; i < nodeList.length; i++) {
+                var nodeName = nodeList[i].nodeName
+                var node = nodeList[i]
+                if (map[nodeName] == undefined) {
+                    map[nodeName] = 0
+                    map[nodeName]++
+                } else {
+                    map[nodeName]++
+                        if (maxcount < map[nodeName]) {
+                            maxcount = map[nodeName]
+                            ele = nodeName
+                        }
+                }
+
+                if (node.children.length !== 0) {
+                    dfsgetEleMaxCount(node.children)
+                }
+
+            }
+        }
+
+        dfsgetEleMaxCount(nodelist[0].children)
+        console.log(ele, maxcount);
+        console.log(map);
+    </script>
+
+</body>
+
+
+</html>

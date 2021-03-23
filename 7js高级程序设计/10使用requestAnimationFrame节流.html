@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .showNum {
+            color: rebeccapurple;
+            font-size: 2em;
+        }
+        
+        body {
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="showNum" id="show">
+
+        我是小狗
+
+    </div>
+
+    <script>
+        var show = document.getElementById('show')
+        var count = 0
+        var flag = false
+
+        function showNum() {
+            show.innerText = count++
+        }
+        window.addEventListener('scroll', () => {
+            if (!flag) {
+
+                flag = true
+                window.requestAnimationFrame(showNum)
+                setTimeout(() => {
+                    flag = false
+                }, 3000);
+
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

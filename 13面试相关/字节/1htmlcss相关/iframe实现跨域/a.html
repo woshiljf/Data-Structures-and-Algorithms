@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe src="b.html" id="ifr1" frameborder="0" scrolling="no"></iframe>
+
+    <button onclick="setLocalStorage()">set</button>
+    <button onclick="getLocalStorage()">get</button>
+    <button onclick="removeLocalStorage()">remove</button>
+</body>
+
+</html>
+
+<script>
+    var iframeDOM = document.getElementById("ifr1")
+        // iframe加载完毕后再发送消息，否则子页面接收不到message
+        // iframeDOM.onload = function () {
+        // }
+
+    // 将 localStorage 存储到 iframe 中
+    function setLocalStorage() {
+        iframeDOM.contentWindow.postMessage(JSON.stringify({
+            type: "SET",
+            key: "key",
+            value: "value"
+        }), '*');
+    }
+
+    // 获取 iframe 中的localStorage
+    function getLocalStorage() {
+        window.addEventListener('message', function(event) {
+            if (iframeDOM.contentWindow != event.source) {
+                return
+            }
+            console.log('post', event)
+        }, false)
+        iframeDOM.contentWindow.postMessage(JSON.stringify({
+            type: "GET",
+            key: "key"
+        }), '*');
+    }
+
+    // 删除 iframe 中的 localstorage
+    function removeLocalStorage() {
+        iframeDOM.contentWindow.postMessage(JSON.stringify({
+            type: "REM",
+            key: "key"
+        }), '*');
+    }
+</script>

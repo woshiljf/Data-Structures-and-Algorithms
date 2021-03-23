@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 100px;
+            border: 1px solid red;
+            margin-bottom: 20px;
+        }
+        
+        .box2 {
+            width: 400px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: 20px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+    解决方法:
+{触发盒子的bfc (block  format context)；}
+
+四种方法：
+
+在样式中加入一下任意一种即可，解决，但各有弊端，根据需要取最适合的。
+
+1.position: absolute;
+
+2.  float: left/right;
+
+3.overflow: hidden;
+
+4.display: inline-block;
+
+
+   -->
+
+
+    <div class="box1">
+        <div class="son"></div>
+    </div>
+    <div class="box2"></div>
+</body>
+
+</html>

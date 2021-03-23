@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            color: red;
+            font-size: 10em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点击我一下</button>
+    <div id="box">
+        小狗
+    </div>
+    <script>
+        var button = document.getElementById('btn')
+        var box = document.getElementById('box')
+            // 防抖函数
+        function debounce(fn, delay) {
+
+            var timeId = null
+            return function() {
+
+                if (timeId !== null) clearTimeout(timeId)
+                timeId = setTimeout(() => {
+                    fn.call(null)
+                }, delay);
+
+            }
+        }
+
+        // 节流函数
+        function thorrter(fn, delay) {
+
+            var nowTime = new Date().getTime()
+            return function() {
+                var updateTime = new Date()
+                if (Math.abs(updateTime - nowTime) < delay) {
+                    return
+                } else {
+                    fn.call()
+                    nowTime = updateTime
+                }
+
+            }
+        }
+
+
+
+        var count = 0
+
+        function increase() {
+            count++
+            box.innerHTML = count
+        }
+
+        button.onclick = debounce(increase, 1000)
+    </script>
+
+
+</body>
+
+</html>

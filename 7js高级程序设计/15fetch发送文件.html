@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">发送文件</button>
+    <input type="file" name="" id="file">
+    <script>
+        var dataFile = new FormData()
+        var file = document.getElementById('file')
+
+        dataFile.append('file', file)
+
+        document.getElementById('btn').onclick = function() {
+
+            fetch('http:www/baidu.com', {
+                method: 'post',
+                body: dataFile
+
+            })
+
+
+        }
+    </script>
+</body>
+
+</html>
