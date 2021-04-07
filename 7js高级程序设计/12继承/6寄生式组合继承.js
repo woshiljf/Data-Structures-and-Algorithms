@@ -21,15 +21,14 @@ function Sub(name, age, like) {
 
 
 }
-Sub.prototype
-    // 实现寄生组合的核心逻辑1：子类的原型继承
+// 实现寄生组合的核心逻辑1：子类的原型继承
 function inheritPrototype(sub, sup) {
 
     var protype = Object.create(sup.prototype)
+
     protype.construct = sub
+
     sub.prototype = protype
-
-
 }
 
 inheritPrototype(Sub, Super)

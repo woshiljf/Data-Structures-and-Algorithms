@@ -58,6 +58,7 @@ export function initState(vm: Component) {
         observe((vm._data = {}), true /* asRootData */ )
     }
     if (opts.computed) initComputed(vm, opts.computed)
+        // 初始化用户传入的自定义watch
     if (opts.watch && opts.watch !== nativeWatch) {
         initWatch(vm, opts.watch)
     }

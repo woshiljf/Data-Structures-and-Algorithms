@@ -47,4 +47,7 @@ function deepCopy(obj) {
 
 var res = deepCopy(obj1)
 
+obj1.fn = '12243434'
+obj1.b.name = "的房间偶素"
+
 console.log(res);

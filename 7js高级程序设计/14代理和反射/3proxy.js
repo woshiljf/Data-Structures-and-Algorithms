@@ -35,6 +35,8 @@ var handle = {
 }
 var p = new Proxy(obj, handle)
 
-p.like.age = 0
+p.list[1] = 1444
 
-console.log(p.like.age)
+console.log(p.list);
+
+// console.log(p.like.age)

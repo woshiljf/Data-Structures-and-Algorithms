@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .leftbox {
+            height: 500px;
+            width: 200px;
+            float: left;
+            background-color: red;
+            margin-left: -100%;
+        }
+        
+        .rightbox {
+            height: 500px;
+            width: 200px;
+            float: right;
+            background-color: pink;
+            margin-right: -200px;
+        }
+        
+        .boxcenter {
+            height: 500px;
+            float: left;
+            width: 100%;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <!-- 首先双飞翼布局的盒子设定顺序就特别一点 -->
+        <div class="boxcenter">
+            <div class="centter">我是中间</div>
+        </div>
+        <div class="leftbox">我是左边</div>
+        <div class="rightbox">我是右边</div>
+
+
+
+    </div>
+</body>
+
+</html>

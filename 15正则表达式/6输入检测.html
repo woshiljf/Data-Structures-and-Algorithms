@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="username">
+    <script>
+        var input = document.querySelector('[name="username"]')
+
+        input.addEventListener('keyup', function() {
+            // 起始和边界值的使用
+            console.log(this.value.match(/^[a-z]{3,6}$/i));
+
+
+
+        })
+    </script>
+</body>
+
+</html>

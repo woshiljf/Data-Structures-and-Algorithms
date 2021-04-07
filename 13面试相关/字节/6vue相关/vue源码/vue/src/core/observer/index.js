@@ -186,6 +186,34 @@ export function defineReactive(
             if (Dep.target) {
                 // 添加依赖
                 dep.depend()
+
+                /**
+                 * depend() {
+                 *   
+                 *   if(Dep.target){
+                 *     // 这里Dep.target,target表示的是watcher,让watcher添加每一个dep，这里的每一个属性都有自己的dep
+                 *     Dep.target.addDep(this)
+                 *    
+                 *   }
+                 *   
+                 * addDep(dep: Dep) {
+                      // 防止一个属性多次取值，多个wacher相同，所有会去重
+                      // 添加Dep，每一个属性都会new 一个Dep，id 是用来记录多少个属性的
+                      const id = dep.id
+                      if (!this.newDepIds.has(id)) {
+                          this.newDepIds.add(id)
+                          this.newDeps.push(dep) //watcher记住dep
+                          if (!this.depIds.has(id)) {
+                              // 给每一个属性都添加watcher，明白了，双向绑定的意思。。。（haha)
+                              // 双向记住，为了不重复的添加watcher,有点意思
+                              dep.addSub(this)
+                          }
+                      }
+                      }
+                 * }
+                 */
+
+
                 if (childOb) {
                     // 如果是数组，也要添加依赖，添加Watcher
                     childOb.dep.depend()

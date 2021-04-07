@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgBox {
+            width: 800px;
+            height: 218px;
+            margin-bottom: 10px;
+            background-color: #ccc;
+            border: 1px solid red;
+        }
+        
+        img {
+            width: 100%;
+            /* height: 100%; */
+            display: none;
+            transition: all 10s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img src="http://www.zhufengpeixun.cn/images/jsbanner.jpg" alt=""> -->
+    <div id="container" class="container">
+
+
+
+    </div>
+    <script>
+        var container = document.getElementById('container')
+        let str = ``
+        new Array(200).fill(null).forEach((item) => {
+            str += ` <div class="imgBox">
+        <img src="" alt="" data-img="http://www.zhufengpeixun.cn/images/jsbanner.jpg" load="false">
+           </div>`
+        })
+
+        container.innerHTML = str
+
+        function loadImg() {
+            // 浏览器可可视区的高度
+            var iH = document.documentElement.clientHeight;
+            // 滚动条的滚动长度
+            var t = document.documentElement.scrollTop || document.body.scrollTop;
+            var imgBoxs = container.children
+            for (var i = 0; i < imgBoxs.length; i++) {
+                var imgBox = imgBoxs[i]
+                if ((!imgBox.getAttribute('load')) && offsetTop1(imgBox) < (iH + t)) {
+                    var img = imgBox.children
+                    var src = img[0].getAttribute("data-img");
+                    img[0].setAttribute('src', src)
+                    img[0].style.display = 'block'
+                    imgBox.setAttribute('load', true)
+                    console.log('执行了吗');
+
+                }
+            }
+        }
+
+        function offsetTop1(ele) {
+
+            console.log(ele.clientHeight);
+            return ele.getBoundingClientRect().top + ele.clientHeight
+        }
+        window.addEventListener('load', loadImg)
+        window.addEventListener('scroll', loadImg)
+    </script>
+</body>
+
+</html>

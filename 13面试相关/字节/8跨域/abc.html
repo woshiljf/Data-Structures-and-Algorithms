@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <p>
+            <label for="message" style="color:red;font-size:24px;">给iframe子窗口发一个信息：</label>
+            <input type="text" name="message" value="send" id="message" />
+            <input type="submit" value="submit" id="submit" />
+        </p>
+    </form>
+    <h4>目标iframe传来的信息：</h4>
+    <p id="test">暂无信息</p>
+
+    <iframe id="iframe" src="def.html" style="display:none"></iframe>
+    <script>
+        var win = document.getElementById("iframe").contentWindow;
+
+        document.getElementById("submit").onclick = function(e) {
+            e.preventDefault();
+            win.postMessage(document.getElementById("message").value, "http://longen.example.com");
+        }
+
+        window.addEventListener("message", function(e) {
+            e.preventDefault();
+            document.getElementById("test").innerHTML = "从" + e.origin + "那里传过来的消息:\n" + e.data;
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 0;
+            height: 0;
+            border: 100px solid;
+            border-color: red red blue blue;
+            border-radius: 50%;
+            background-color: skyblue;
+            transform: rotate(45deg);
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .box::before {
+            content: '';
+            border-radius: 50%;
+            position: absolute;
+            border: solid 100px;
+            border-color: #37c #37c transparent transparent;
+            /* transform: translate(-50%, -50%); */
+            transform: translate(-50%, -50%) rotate(30deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

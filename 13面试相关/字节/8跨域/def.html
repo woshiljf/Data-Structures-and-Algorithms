@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <p>
+            <label for="message">给父窗口abc.html发个信息：</label>
+            <input type="text" name="message" value="send" id="message" />
+            <input type="submit" />
+        </p>
+    </form>
+    <p id="test2">暂无信息。</p>
+    <script>
+        var parentwin = window.parent;
+        window.addEventListener("message", function(e) {
+            document.getElementById("test2").innerHTML = "从父窗口传来的域" + e.origin + "，和内容数据：" + e.data;
+            parentwin.postMessage('HI!你给我发了"<span>' + e.data + '"</span>。', "http://abc.example.com");
+        }, false);
+    </script>
+</body>
+
+</html>

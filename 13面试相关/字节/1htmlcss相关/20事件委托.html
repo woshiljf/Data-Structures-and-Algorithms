@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {}
+        
+        li {
+            list-style-type: none;
+            border: 1px solid red;
+            width: 100%;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        var box = document.getElementById('box')
+
+        box.addEventListener('click', function(e) {
+
+            console.log(e.target);
+
+            e.target.style.backgroundColor = "red"
+            getSiblings(e.target)
+
+
+
+
+        })
+
+        function getSiblings(ele) {
+
+            var nodes = ele.parentNode.children
+
+            for (let i = 0; i < nodes.length; i++) {
+
+                if (nodes[i] !== ele) {
+                    nodes[i].style.backgroundColor = 'pink'
+                }
+
+
+
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

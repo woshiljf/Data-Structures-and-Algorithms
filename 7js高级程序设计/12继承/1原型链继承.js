@@ -15,6 +15,7 @@ function SubType() {
     this.subProperty = false
 }
 SubType.prototype = new SuperType()
+
 SubType.prototype.getSubPerperty = function() {
     return this.subProperty
 }
