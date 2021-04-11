@@ -441,11 +441,16 @@ export function createPatchFunction(backend) {
     ) {
         let oldStartIdx = 0
         let newStartIdx = 0
+
         let oldEndIdx = oldCh.length - 1
+            // 老节点的首节点
         let oldStartVnode = oldCh[0]
+            // 老节点的尾节点
         let oldEndVnode = oldCh[oldEndIdx]
         let newEndIdx = newCh.length - 1
+            // 新节点的首节点
         let newStartVnode = newCh[0]
+            // 新节点的尾节点
         let newEndVnode = newCh[newEndIdx]
         let oldKeyToIdx, idxInOld, vnodeToMove, refElm
 
@@ -613,6 +618,7 @@ export function createPatchFunction(backend) {
         }
     }
 
+    // 打补丁函数
     function patchVnode(
         oldVnode,
         vnode,
@@ -660,7 +666,7 @@ export function createPatchFunction(backend) {
         if (isDef(data) && isDef((i = data.hook)) && isDef((i = i.prepatch))) {
             i(oldVnode, vnode)
         }
-
+        // 新旧节点的孩子
         const oldCh = oldVnode.children
         const ch = vnode.children
         if (isDef(data) && isPatchable(vnode)) {

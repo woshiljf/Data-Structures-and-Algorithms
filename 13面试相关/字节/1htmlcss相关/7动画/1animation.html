@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            background-color: red;
+            border-radius: 50%;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: go 3s linear infinite;
+            position: absolute;
+        }
+        
+        @keyframes go {
+            0% {
+                transform: translateX(0px);
+            }
+            40% {
+                transform: translateX(80px);
+            }
+            80% {
+                transform: translateX(20px);
+            }
+            0% {
+                transform: translateX(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

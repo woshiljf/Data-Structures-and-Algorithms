@@ -65,11 +65,19 @@
         box3.onclick = function() {
             console.log('box3');
         }
-        box4.onclick = function() {
-            console.log('box4');
+        box3.onclick = function() {
+            console.log('box3');
         }
-        box3.addEventListener('click', function() {
-            console.log('box33');
+        box4.addEventListener('click', function(e) {
+            console.log('box444');
+            if (e && e.stopPropagation) {
+                e.stopPropagation()
+                    // ie 浏览器使用cancelBubble来取消冒泡
+                e.cancelBubble = true
+                    // 引申出来阻止 默认行为 e.preventDefault() // window.event.returnValue =false
+            } else {
+
+            }
         }, true)
     </script>
 </body>
