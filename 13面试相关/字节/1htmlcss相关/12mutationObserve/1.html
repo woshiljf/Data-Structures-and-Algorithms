@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box" name='love'>
+        我是xiaogou
+    </div>
+
+    <script>
+        var box = document.querySelector('.box')
+        var observe = new MutationObserver(() => {
+            console.log('box的属性变化了');
+        })
+        observe.observe(box, {
+            attributes: true
+        })
+        setTimeout(() => {
+            console.log('大狗狗');
+        }, 0);
+        box.setAttribute('name', '猪头')
+
+        console.log('13r23');
+    </script>
+</body>
+
+</html>

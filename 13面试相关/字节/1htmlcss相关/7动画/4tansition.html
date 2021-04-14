@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            height: 1000px;
+            width: 100%;
+        }
+        
+        #btn {
+            position: fixed;
+            bottom: 0px;
+        }
+        
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            list-style: none;
+            width: 100%;
+            height: 100px;
+            border: 1px solid red;
+        }
+        
+        li:nth-child(2n) {
+            background-color: pink;
+        }
+        
+        li:nth-child(2n+1) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+
+
+    </div>
+    <button id="btn">点我</button>
+    <script>
+        var box = document.querySelector('.box')
+        var btn = document.querySelector('#btn')
+        var client = document.documentElement.clientHeight
+
+        function getScrollTop() {　　
+            var scrollTop = 0,
+                bodyScrollTop = 0,
+                documentScrollTop = 0;　　
+            if (document.body) {　　　　
+                bodyScrollTop = document.body.scrollTop;　　
+            }　　
+            if (document.documentElement) {　　　　
+                documentScrollTop = document.documentElement.scrollTop;　　
+            }
+            scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+            return scrollTop;
+        }
+
+        function getScrollHeight() {　　
+            var scrollHeight = 0,
+                bodyScrollHeight = 0,
+                documentScrollHeight = 0;　　
+            if (document.body) {　　　　
+                bSH = document.body.scrollHeight;　　
+            }　　
+            if (document.documentElement) {　　　　
+                dSH = document.documentElement.scrollHeight;　　
+            }
+            scrollHeight = (bSH - dSH > 0) ? bSH : dSH;　　
+            return scrollHeight;
+        }
+
+        function getWindowHeight() {　　
+            var windowHeight = 0;　　
+            if (document.compatMode == "CSS1Compat") {　　　　
+                windowHeight = document.documentElement.clientHeight;　　
+            } else {　　　　
+                windowHeight = document.body.clientHeight;　　
+            }　　
+            return windowHeight;
+        }
+
+        window.onscroll = function() {　
+
+            console.log('滑动了');
+            if (Math.floor(getScrollTop() + getWindowHeight()) == getScrollHeight()) {　　　　
+                // alert("已经到最底部了！!");
+                // document.documentElement.scrollTop = 0
+                fn()
+            }
+        };
+        btn.onclick = function() {
+            // box.style.top = 0 + 'px'
+            document.documentElement.scrollTop = 0
+        }
+
+        function fn() {
+
+            window.onmouseup = function() {
+                document.documentElement.scrollTop = 0
+            }
+
+            setTimeout(() => {
+                document.documentElement.scrollTop = 0
+
+            }, 3000);
+        }
+        window.onmousewheel = function() {
+            console.log('鼠标滑轮滚动了');
+        }
+    </script>
+</body>
+
+</html>

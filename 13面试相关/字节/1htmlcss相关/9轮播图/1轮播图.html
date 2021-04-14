@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .img11 {
+            width: 400px;
+            border: 1px solid red;
+            height: 150px;
+            position: absolute;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%
+        }
+        
+        .container {
+            position: relative;
+            width: 400px;
+            border: 2px solid black;
+            background-color: pink;
+            height: 200px;
+            margin: 300px auto;
+            overflow: hidden;
+        }
+        
+        .box {
+            position: absolute;
+            width: 400px;
+            border: 2px solid black;
+            background-color: red;
+            height: 160px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <ul class="box">
+            <li class="img11">4<img src="./images/18.jpg" alt="5"></li>
+            <li class="img11">1<img src="./images/1.jpg" alt="2"></li>
+            <!-- <li class="img11"><img src="./images/10.jpg" alt=""></li> -->
+            <!-- <li class="img11"><img src="./images/11.jpg" alt=""></li>
+            <li class="img11"><img src="./images/12.jpg" alt=""></li>
+            <li class="img11"><img src="./images/13.jpg" alt=""></li>
+            <li class="img11"><img src="./images/14.jpg" alt=""></li>
+            <li class="img11"><img src="./images/15.jpg" alt=""></li> -->
+            <li class="img11">2<img src="./images/16.jpg" alt="1"></li>
+            <li class="img11">3<img src="./images/17.jpg" alt="2"></li>
+            <li class="img11">4<img src="./images/18.jpg" alt="3"></li>
+            <li class="img11">1<img src="./images/1.jpg" alt="小狗"></li>
+
+        </ul>
+
+    </div>
+    <button id="btn">点我</button>
+    <script>
+        var images = document.querySelectorAll('.img11')
+        var box = document.querySelector('.box')
+        for (let i = 0; i < images.length; i++) {
+            var img = images[i]
+            img.style.left = i * 400 + 'px'
+        }
+        box.style.left = -1 * 400 + 'px'
+        var count = 2
+
+        // function runImage(box, delay) {
+
+        //     var timeId1 = setInterval(() => {
+        //         if (count == images.length) {
+        //             count = 2
+        //             box.style.left = -count * 400 + 'px'
+        //         } else {
+        //             changeLeft(box, count)
+        //         }
+        //         count++
+        //     }, delay);
+
+        // }
+
+
+        var timeId2 = null
+
+        function changeLeft() {
+            var left = box.offsetLeft
+            left += -1
+                // console.log(left);
+            if (left == -5 * box.clientWidth) {
+                left = -count * box.clientWidth
+            }
+            box.style.left = left + 'px'
+            timeId2 = requestAnimationFrame(changeLeft)
+        }
+        timeId2 = requestAnimationFrame(changeLeft)
+
+        document.getElementById('btn').onclick = function() {
+            // cancelAnimationFrame(timeId2)
+            var res = []
+            let imgs = document.querySelectorAll('img')
+            for (let i = 0; i < imgs.length; i++) {
+
+                var img = imgs[i]
+                var alt = img.alt
+                img.alt = '小猪'
+                res.push(alt)
+
+
+
+            }
+
+
+            console.log(res);
+
+
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red,
+        .blue,
+        .yellow {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            transition: all 2s;
+        }
+        
+        .red {
+            background-color: white;
+        }
+        
+        .blue {
+            background-color: white;
+        }
+        
+        .yellow {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="yellow"></div>
+    <script>
+        var red = document.querySelector('.red')
+        var blue = document.querySelector('.blue')
+        var yellow = document.querySelector('.yellow')
+
+
+
+        var res = [red, blue, yellow]
+        var count = 0
+        setInterval(() => {
+            if (count == 3) {
+                count = 0
+            }
+            if (count == 0) {
+                res[count].style.backgroundColor = 'red'
+                res[1].style.backgroundColor = 'white'
+                res[2].style.backgroundColor = 'white'
+            } else if (count == 1) {
+                res[count].style.backgroundColor = 'blue'
+                res[0].style.backgroundColor = 'white'
+                res[2].style.backgroundColor = 'white'
+
+            } else {
+                res[count].style.backgroundColor = 'yellow'
+                res[0].style.backgroundColor = 'white'
+                res[1].style.backgroundColor = 'white'
+            }
+            count++
+        }, 1000);
+    </script>
+</body>
+
+</html>

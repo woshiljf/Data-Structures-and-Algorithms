@@ -66,19 +66,22 @@
             console.log('box3');
         }
         box3.onclick = function() {
-            console.log('box3');
-        }
-        box4.addEventListener('click', function(e) {
-            console.log('box444');
-            if (e && e.stopPropagation) {
-                e.stopPropagation()
-                    // ie 浏览器使用cancelBubble来取消冒泡
-                e.cancelBubble = true
-                    // 引申出来阻止 默认行为 e.preventDefault() // window.event.returnValue =false
-            } else {
-
+                console.log('box3');
             }
-        }, true)
+            // box4.addEventListener('click', function(e) {
+            //         console.log('box444');
+            //         // if (e && e.stopPropagation) {
+            //         //     e.stopPropagation()
+            //         //         // ie 浏览器使用cancelBubble来取消冒泡
+            //         //     e.cancelBubble = true
+            //         //         // 引申出来阻止 默认行为 e.preventDefault() // window.event.returnValue =false
+            //         // } else {
+
+        //         // }
+        //     }, false)
+        box4.addEventListener('mousemove', function() {
+            console.log('box4');
+        })
     </script>
 </body>
 
