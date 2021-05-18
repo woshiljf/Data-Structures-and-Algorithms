@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .green {
+      background-color: green;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="green blue red">
+    fsdfasdfasd
+  </div>
+  <script>
+    window.onbeforeunload = function () {
+      return "There are unsaved changes. Leave now?";
+    };
+    function work() {
+      console.log('加载挖鼻');
+    }
+
+    if (document.readyState == 'loading') {
+      document.addEventListener('DOMContentLoaded', work);
+    } else {
+      work();
+    }
+
+
+  </script>
+</body>
+
+</html>

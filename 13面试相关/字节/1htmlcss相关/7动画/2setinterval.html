@@ -2,63 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .box {
-            width: 100px;
-            height: 100px;
-            border: 1px solid red;
-            background-color: pink;
-            border-radius: 50%;
-            position: absolute;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+      background-color: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="box"></div>
-    <script>
-        // 缺点，动画不够顺滑，定时器的时间不准确，如果页面有多个异步任务的情况下，会有造成延误
-        var box = document.querySelector('.box')
-        var left = 0
-        var f = 1
-        var timeId = null
-        start()
+  <div class="box"></div>
+  <script>
+    // 缺点，动画不够顺滑，定时器的时间不准确，如果页面有多个异步任务的情况下，会有造成延误
+    var box = document.querySelector('.box')
+    var left = 0
+    var f = 1
+    var timeId = null
+    start()
 
-        function start() {
-            timeId = setInterval(() => {
-                moveBox(box)
-            }, 5);
+    function start() {
+      timeId = setInterval(() => {
+        moveBox(box)
+      }, 5);
 
-        }
+    }
 
-        function moveBox(ele) {
+    function moveBox(ele) {
 
-            left += f
+      left += f
 
-            if (left == 500) {
-                f = -1
-            } else if (left == 0) {
-                f = 1
-            }
-            ele.style.left = left + 'px'
-        }
+      if (left == 500) {
+        f = -1
+      } else if (left == 0) {
+        f = 1
+      }
+      ele.style.left = left + 'px'
+    }
 
 
 
-        box.addEventListener('mouseover', function() {
+    box.addEventListener('mouseover', function () {
 
-            clearInterval(timeId)
-        })
-        box.addEventListener('mouseleave', function() {
+      clearInterval(timeId)
+    })
+    box.addEventListener('mouseleave', function () {
 
-            start()
-        })
-    </script>
+      start()
+    })
+  </script>
 
 </body>
 

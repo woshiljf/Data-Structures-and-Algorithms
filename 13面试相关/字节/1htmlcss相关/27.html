@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>js</title>
+  <style>
+    /* 左上 */
+    .raidal1 {
+      height: 400px;
+      width: 400px;
+      position: relative;
+      background: radial-gradient(100px at right top, transparent 50%, red 50%),
+        radial-gradient(100px at left top, transparent 50%, red 50%);
+
+      filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .3));
+
+
+    }
+
+    /* 右上 */
+    .raidal2 {
+      height: 100px;
+      width: 100px;
+      background: radial-gradient(200px at right top, transparent 50%, blue 50%);
+    }
+
+    /* 右下 */
+    .raidal3 {
+      height: 100px;
+      width: 100px;
+      background: radial-gradient(200px at right bottom, transparent 50%, blue 50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class='raidal1'>1</div>
+
+</body>
+
+</html>
