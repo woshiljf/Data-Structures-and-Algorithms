@@ -28,7 +28,7 @@ var findMaximumXOR = function (nums) {
     maxCur = max | 1;
     // 前缀数组置为空
     prefix.clear();
-    // 按照例子来看，最长二进制位数为5，移动4位后就是在计算第5位，例如01001右移动4位就是0
+    // 按照例子来看，最长二进制位数为25，移动4位后就是在计算第5位，例如01001右移动4位就是0
     for (let num of nums) prefix.add(num >> i);
 
     for (let p of prefix) {
