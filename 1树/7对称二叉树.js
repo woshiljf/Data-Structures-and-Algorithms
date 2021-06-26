@@ -29,3 +29,7 @@ const isSymmetric = (root) => {
     // 5. 返回结果
     return recursion(root, root);
 };
+
+console.log(1);
+
+console.log(1);
