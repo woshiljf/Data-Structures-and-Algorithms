@@ -18,3 +18,4 @@ var inorderTraversal = function (root) {
 
 
 };
+console.log('1');
