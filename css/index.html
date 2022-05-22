@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            width: 100vw;
+            height: 100vh;
+            background-color: skyblue;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+        div {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+            /* background-color: pink;
+            justify-content: center;
+            align-items: center;
+            transition: all 2s;
+            position: relative; */
+            transition-duration: 2s;
+
+        }
+    
+        div::after {
+            content: '小狗';
+            display: block;
+            height: 200px;
+            width: 200px;
+            border-radius: 10%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div:hover:after {
+         
+            transform: rotate(360deg);
+        }
+        /* div::before {
+            content: '小狗';
+            position: absolute;
+            bottom: -50px;
+            width: 200px;
+            text-align: center;
+            transform: translateX(-999px);
+            transition: all 2s;
+
+        }
+        div.move::before {
+            transform: translate(0);
+        } */
+    </style>
+</head>
+<body>
+    <main>
+        <div>
+
+        </div>
+    </main>
+    <script>
+        document.querySelector('div').addEventListener('transitionend',function(e){
+
+            console.log('过度结束');
+
+            document.querySelector('div').className='move'
+
+
+        })
+    </script>
+</body>
+</html>
