@@ -18,13 +18,9 @@
             height: 200px;
             width: 200px;
             border: 1px solid red;
-            /* background-color: pink;
             justify-content: center;
-            align-items: center;
-            transition: all 2s;
-            position: relative; */
-            transition-duration: 2s;
-
+            align-items: center; 
+            position: relative;
         }
     
         div::after {
@@ -37,24 +33,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition-duration: 2s;
         }
         div:hover:after {
-         
             transform: rotate(360deg);
         }
-        /* div::before {
+        div::before {
             content: '小狗';
             position: absolute;
-            bottom: -50px;
+            bottom: -10px;
             width: 200px;
             text-align: center;
             transform: translateX(-999px);
-            transition: all 2s;
+            transition: 1s;
 
         }
         div.move::before {
             transform: translate(0);
-        } */
+        }
     </style>
 </head>
 <body>
