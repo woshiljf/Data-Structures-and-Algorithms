@@ -16,6 +16,7 @@ var cutOffTree = function(forest) {
             }
         }
     }
+    // 数的高度从低到高排序.
     trees.sort((a, b) => forest[a[0]][a[1]] - forest[b[0]][b[1]]);
 
     let cx = 0;
