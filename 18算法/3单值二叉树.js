@@ -13,7 +13,6 @@
  var isUnivalTree = function(root) {
 
     if(!root) return false;
-
     const value = root.val
 
     const dfs = node => {
